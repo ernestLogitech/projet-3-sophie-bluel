@@ -1,0 +1,20 @@
+{
+  "name": "commun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main-projet.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ernestLogitech/projet-3-sophie-bluel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ernestLogitech/projet-3-sophie-bluel/issues"
+  },
+  "homepage": "https://github.com/ernestLogitech/projet-3-sophie-bluel#readme"
+}

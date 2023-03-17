@@ -17,7 +17,8 @@ const reponse = await fetch('http://localhost:5678/api/works',
     "content-type": "application/json",
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
     }
-});*/
+});
+*/
 const reponse = await fetch('http://localhost:5678/api/works',{
 
     headers: {
@@ -25,13 +26,11 @@ const reponse = await fetch('http://localhost:5678/api/works',{
       "Accept": "application/json", 
       "Content-Type":"application/json",
       "Cross-Origin-Resource-Policy" : "same-site | same-origin | cross-origin",
-  //   "Access-Control-Allow-Origin":"missing", 
-    
-
     }
   });
 const works = await reponse.json();
 console.log(works);
+/*
 ///const reponsCategorie = await fetch('http://localhost:5678/api/categories');
 const reponsCategorie = await fetch('http://localhost:5678/api/categories',{
 
@@ -43,9 +42,10 @@ const reponsCategorie = await fetch('http://localhost:5678/api/categories',{
      //"Access-Control-Allow-Origin":"missing",
     }
   });
+
 const categories = await reponsCategorie.json();
 console.log(categories);
-
+  */
 function genererGallery(works) {
 for(let i = 0; i < works.length ; i++){
     const galery = works[i];
@@ -90,7 +90,7 @@ console.log(tousObjet);
 const buttonAppartements = document.querySelector('.Appartements');
 buttonAppartements.addEventListener('click', function(e){
     const tousappartements = Array.from(works); 
-    const tousappartementse = tousappartements.filter(function (a) {
+    const tousappartement = tousappartements.filter(function (a) {
        
         return a.category.name == "Appartements";
 
@@ -99,8 +99,8 @@ buttonAppartements.addEventListener('click', function(e){
     console.log(e.target.textContent);
     //console.log(buttonAppartements.value);
     document.querySelector(".gallery").innerHTML = '';
-    genererGallery(tousappartementse);
-    console.log(tousappartementse);
+    genererGallery(tousappartement);
+    console.log(tousappartement);
 });
 
 const buttonrestaurants = document.querySelector('.restaurants');
@@ -116,3 +116,30 @@ genererGallery(tousObjet);
 console.log(tousObjet);
 
 });
+
+/*
+  const Works = require('./models/works.model');
+  const categories = require('./models/categories.model');
+  router.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+  });
+
+
+
+  app.router('http://localhost:5678/api/works', (req, res, next) => {
+    console.log(...req.body);
+    Works.find()
+      .then(Works => res.status(200).json(Works))
+      .catch(error => res.status(400).json({ error }));
+  });
+
+  app.router('http://localhost:5678/api/categories', (req, res, next) => {
+    console.log(...req.body);
+    categories.find()
+      .then(category => res.status(200).json(category))
+      .catch(error => res.status(400).json({ error }));
+  });
+  */
