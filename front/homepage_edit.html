@@ -8,14 +8,19 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<link rel="stylesheet" href="css/modal.css"> 
     <link rel="stylesheet" href="./assets/syle_homepage.css">
 </head>
 <body>
     <div class="menu-edition">
-        <div class="publier">
+        <div class=" ">
+			<p class="mode"> Mode édition</p> 
+        </div>
+		<div class="publier">
             publier les changements
         </div>
-            </div>
+		
+     </div>
 <header>
    
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
@@ -23,8 +28,9 @@
 		<ul>
 			<li> <a class="projets" href="index.html">projets</a></li>
 			<li> <a class="contact" href="login.html">contact</a></li>
-			<li> <a class="login" href="login.html">login</a></li>
-            <li> <a class="Homepage" href="homepage_edit.html">Edit</a></li>
+            <li id="loginCon"> <a class="login" href="login.html">login</a></li> 
+			<li> <a class="Homepage" href="homepage_edit.html">Edit</a></li>
+			<li id="logout"> <a class="logout">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -41,8 +47,11 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
-	<section id="portfolio">
-		<h2>Mes Projets</h2>
+	<section id="portfolio"> 
+		<div class="mesprojets"> 
+			<h2>Mes Projets</h2> <i class="fa-thin fa-pen-to-square"></i>
+			<a href="#modal1" class="js-modal">modifier</a> 
+		</div>
 		<div class="gallery"> 
 
 
@@ -61,7 +70,75 @@
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
+
+    <aside id="modal1" class="modal" aria-hidden="true" aria-labelledby="titlemodal" style="display: none">
+        <div class="modal-wrapper js-modal-stop">
+            <button class="js-modal-close">x</button>
+			
+            <h1 id="titlemodal">Galerie photo</h1>
+			
+			 
+		<div class="gallerymodal">
+			<figure>
+				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris" class="imag">
+				<figcaption>édition</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
+				<figcaption>édition</figcaption>
+			</figure>
+				
+		 
+		</div>
+		<hr>
+				<input type="submit" value="Ajouter une photo" class="des">
+				<div id="res-error"></div>
+				<p class="SupprimerGalerie">Supprimer la galerie</p>
+				
+    </aside>
+	<script type="module" src="js/testConnected.js"></script>
 	<script type="module" src="js/main-projet.js"></script>
+	<script type="module" src="js/modale.js"></script>
+	
+	<script type="module" src="js/main-projet.js"></script>
+	<script src="https://kit.fontawesome.com/024a111b2f.js" crossorigin="anonymous"></script> 
+	<script src="https://kit.fontawesome.com/5b77b1eedb.js" crossorigin="anonymous"></script>
 </main>
 
 <footer>
