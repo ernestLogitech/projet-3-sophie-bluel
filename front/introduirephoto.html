@@ -8,10 +8,22 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="css/modal.css"> 
+    <link rel="stylesheet" href="./assets/syle_homepage.css">
 </head>
 <body>
+    <div class="menu-edition">
+        <div class=" ">
+			<i class="fa-thin fa-pen-to-square mode"></i>
+			<p class="mode"> Mode édition</p> 
+        </div>
+		<div class="publier">
+            publier les changements
+        </div>
+		
+     </div>
 <header>
+   
 	<h1>Sophie Bluel <span>ARCHITECTE D'INTERIEUR</span></h1>
 	<nav>
 		<ul>
@@ -27,7 +39,7 @@
 <main>
 	<section id="introduction">
 		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="bonjour">
+			<img src="./assets/images/sophie-bluel.png" alt="">
 		</figure>
 		<article>
 			<h2>Designer d'espace</h2>
@@ -36,24 +48,11 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
-	<section id="portfolio">
-		<h2>Mes Projets</h2>
-		<div class="contener-filter">
-
-			<div class="filtres">
-				<div class="filtre tous">
-					Tous
-				</div>
-				<div class="filtre Objets">
-					Objets
-				</div>
-				<div class="filtre Appartements">
-					Appartements
-				</div>
-				<div class="filtre restaurants">
-					Hôtels & restaurants
-				</div>
-			</div>
+	<section id="portfolio"> 
+		<div class="mesprojets"> 
+			<h2>Mes Projets</h2> <i class="fa-thin fa-pen-to-square"></i>
+			<i class="fa-thin fa-pen-to-square"></i>
+			<a href="#modal1" class="js-modal">modifier</a> 
 		</div>
 		<div class="gallery"> 
 
@@ -73,8 +72,33 @@
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
+
+    <aside id="modal1" class="modal" aria-hidden="true" aria-labelledby="titlemodal" style="display: none">
+        <div class="modal-wrapper js-modal-stop">
+            <button class="js-modal-close">x</button>
+			
+            <h1 id="titlemodal">Galerie photo</h1>
+			
+			 
+		<div class="gallerymodal">
+	
+				
+		 
+		</div>
+		<hr>
+				<a href="introduirephoto.html"><input type="submit" value="Ajouter une photo" class="des"></a>
+				<div id="res-error"></div>
+				<p class="SupprimerGalerie">Supprimer la galerie</p>
+				
+    </aside>
 	<script type="module" src="js/testConnected.js"></script>
 	<script type="module" src="js/main-projet.js"></script>
+	<script type="module" src="js/modale.js"></script>
+	<script type="module" src="js/homepage_edit.js"></script>
+	
+	<script type="module" src="js/main-projet.js"></script>
+	<script src="https://kit.fontawesome.com/024a111b2f.js" crossorigin="anonymous"></script> 
+	<script src="https://kit.fontawesome.com/5b77b1eedb.js" crossorigin="anonymous"></script>
 </main>
 
 <footer>

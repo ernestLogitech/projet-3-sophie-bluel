@@ -1,4 +1,4 @@
-let stoLogin = localStorage.getItem('login');
+let stoLogin = localStorage.getItem('connectLogin');
 if(stoLogin != null){
 afficherLogout();
 masquerLogin();
