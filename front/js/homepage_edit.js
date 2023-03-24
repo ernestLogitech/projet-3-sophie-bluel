@@ -58,7 +58,7 @@ genererGallery(works);
   
 
     //formData.append('file', sendFiles[0]);
-    formData.append('file',sendFiles[0])
+   const url = formData.append('file',sendFiles[0])
    var userId = connectToken.userId;
     var token = connectToken.token;
     //var userId = connectToken;
@@ -68,14 +68,15 @@ genererGallery(works);
     console.log(title);
     console.log(category);
     console.log(userId);
+    console.log(formData);
     //console.log(connectToken.token);
     console.log("je suis dans la function modal");
     let response;
     //let auth;
-    let url;
+    
     if((title !="") && (category !="")){
     let data_modal = { 
-      url:formData,
+      url:url,
       title:title,
       category:category,
       userId:userId,
@@ -86,9 +87,9 @@ genererGallery(works);
     method: 'POST',
     headers: {
     //'Content-Type': 'application/json;charset=utf-8',
-    'Authorization': 'Bearer '+ token
+    'authorization': 'Bearer '+ token
     },
-    body:  formData,
+    body:  data_modal,
     //headers: {Authentication: `Bearer ${token}`}
     //headers: {Authentication: 'Bearer {token}'}
 
@@ -154,3 +155,73 @@ im.addEventListener("input", function(e) {
   //figureElement.appendChild(imageElement);
   document.getElementById("image-mod").appendChild(imagePhoto);
   });*/
+
+
+
+  /*
+    async function send_modal(e) {
+
+    e.preventDefault();
+    console.log('bien');
+    let connectToken =JSON.parse(localStorage.getItem('connectToken')) ;
+    var title = document.getElementById("name-mod").value; 
+    var category = document.getElementById("cat-select").value;
+   // console.log(document.querySelector('input[type="file"]').files);
+    const sendFiles = document.querySelector('input[type="file"]').files
+    ///const fileInput = document.querySelector('input[type=file]');
+    console.log(sendFiles[0]);
+    const formData = new FormData();
+  
+
+    //formData.append('file', sendFiles[0]);
+    formData.append('file',sendFiles[0])
+   var userId = connectToken.userId;
+    var token = connectToken.token;
+    //var userId = connectToken;
+    formData.append('title', title);
+    formData.append('category',category);
+    formData.append('userId',userId);
+    console.log(title);
+    console.log(category);
+    console.log(userId);
+    //console.log(connectToken.token);
+    console.log("je suis dans la function modal");
+    let response;
+    //let auth;
+    let url;
+    if((title !="") && (category !="")){
+    let data_modal = { 
+      url:formData,
+      title:title,
+      category:category,
+      userId:userId,
+      //auth : {userId:userId}
+    }
+
+    response = await fetch('http://localhost:5678/api/works', {
+    method: 'POST',
+    headers: {
+    //'Content-Type': 'application/json;charset=utf-8',
+    'Authorization': 'Bearer '+ token
+    },
+    body:  formData,
+    //headers: {Authentication: `Bearer ${token}`}
+    //headers: {Authentication: 'Bearer {token}'}
+
+    }).then(response => response.json())
+    .then(data =>{ console.log(data)
+    
+    })
+    .catch(function(error) {
+      console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message);
+    });
+
+  }else{
+    getemailValidationVide()
+    console.log('vous devez renseigner vos informations de connexion');
+  }  
+ 
+ }
+
+
+*/
