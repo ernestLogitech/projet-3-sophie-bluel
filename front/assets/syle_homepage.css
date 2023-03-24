@@ -159,7 +159,7 @@ margin: 2em 0 1em 0;
 border: none;
 box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-
+/*
 input[type="submit"]{
 font-family: 'Syne';
 font-weight: 700;
@@ -170,6 +170,7 @@ width: 180px;
 text-align: center;
 border-radius: 60px ;
 }
+*/
 
 .mot-de-pass-oublier:hover{
 font-size: 14px;
@@ -321,17 +322,8 @@ gap: 20px;
 align-items: center;
 justify-content: center;
 }
-.des{
-display: flex;
-justify-content: center;
-align-items: center;
-height: 40px;
-width: 50%;
-font-size: 1.2em;
-border: none;
-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-padding: 10px;
-}
+ 
+
 .SupprimerGalerie{
 display: flex;
 justify-content: center;
@@ -419,23 +411,104 @@ color: #D65353;
 	/*modale 2*/
 
 	.contenuImageAjout{
-
-	height: 169px;
-	width: 420px;  
-	border-radius: 3px;
-	background-color: #1D6154;
-
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 169px;
+		width: 330px;  
+		border-radius: 3px;
+		background-color: #E8F1F6;
+		margin: 20px 0px;
 	}
 
 	.modalClosedesigns{
-		transform: translate(703%,-242%);	
+		transform: translate(703%,-352%);
+		float: right;
+		inline-size: block;	
 	}
 	.modalClosedesign{
 		transform: translate(103%,-242%);	
 	}
-	.uploadfile{
-	height: 36px;
-	width: 173px;
-	border-radius:  50px;
-
+	.modalClosedesigns-fleche{
+		transform: translate(-733%,-242%);	
+		float: left;
+		inline-size: block;
 	}
+	.uploadfile{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
+		width: 150px;
+		border-radius: 6px;
+		border: 1px dashed #999;
+		color: rgb(47, 92, 47);
+		background-color: #1D6154;
+		margin: 20px 20px;
+	}
+
+	.ajouter-info{
+		Width:320px;
+		height: 50px;
+		font-size: 1.2em;
+		border: none;
+		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);	
+		margin-bottom: 20px;
+	 
+	}
+#image-container{
+		width: 50px;
+		max-width: 50px;
+		height: 50px;
+	}
+	 #bum{
+		position: absolute;
+		width: 20px;
+		height: 20px;
+
+	 }
+	 #valider-modal {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #A7A7A7;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+	height: 40px;
+	border: none;
+	 }
+	 #valider-modal-full {
+		font-family: 'Syne';
+		font-weight: 700;
+		color: white;
+		background-color: #1D6154;
+		margin : 2em auto ;
+		width: 180px;
+		text-align: center;
+		border-radius: 60px ;
+		height: 40px;
+		border: none;
+		 }
+	 .contact-envoyer{
+		font-family: 'Syne';
+font-weight: 700;
+color: white;
+background-color: #1D6154;
+margin : 2em auto ;
+width: 180px;
+text-align: center;
+border-radius: 60px ;
+		}
+		input[type="submit"]{
+			font-family: 'Syne';
+			font-weight: 700;
+			color: white;
+			background-color: #1D6154;
+			margin : 2em auto ;
+			width: 180px;
+			text-align: center;
+			border-radius: 60px ;
+			}

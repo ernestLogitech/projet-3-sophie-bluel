@@ -10,6 +10,8 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="css/modal.css"> 
     <link rel="stylesheet" href="./assets/syle_homepage.css">
+	<script src="https://kit.fontawesome.com/024a111b2f.js" crossorigin="anonymous"></script> 
+	<script src="https://kit.fontawesome.com/5b77b1eedb.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="menu-edition">
@@ -110,8 +112,8 @@
 		 
 		</div>
 		<hr>
-				<a href="introduirephoto.html"><input type="submit" value="Ajouter une photo" class="des"></a>
-				<div id="res-error"></div>
+		<a href="homepage_edit.html#modal2" class="js-modal mode-design"><input type="submit" value="Ajouter une photo" class="contact-envoyer"></a>
+				<div id="res-error"></div>  
 				<p class="SupprimerGalerie">Supprimer la galerie</p>
 				
     </aside>
@@ -125,40 +127,76 @@
 
 	<aside id="modal2" class="modal2" aria-hidden="true" aria-labelledby="titlemodal" style="display: none">
         <div class="modal-wrappers js-modal-stop">
-            <button class="js-modal-close modalClosedesigns">x</button>
+            <button class="js-modal-close modalClosedesigns-fleche"><i class="fa-solid fa-arrow-left"></i> </button>
+			<button class="js-modal-close modalClosedesigns">x</button>
 			
             <h1 id="titlemodal">Ajout photo</h1>
 			
-			 
-		<div class="contenuImageAjout">
-	
-			<i class="fa-solid fa-image fa-xl"></i> <br>
-			<div><input type="file" class="uploadfile"></div>
-		 <span>jpg png 4mo max</span>
+			 <div id="image-container"></div>
+		<div class="contenuImageAjout" id="contenuImageAjout">
+			<div>
+				<i class="fa-solid fa-image fa-2xl" id="bum"></i>
+			</div>
+			<div>
+				 <input type="file" id="file-ajouter-photo" class="uploadfile" onchange="loadImage(event)">
+			</div>
+			<div>
+				<p id="png">jpg png 4mo max</p>
+			</div> 
 		</div>
-<form action="">
-	<pre>
+<form  id="form-modal2">
+	 
 	<label for="name">titre</label>
-	<input type="text" name="name" id="name"><br>
+	<span id="for-name"></span>
+	<input type="text" name="name-mod" id="name-mod" class="ajouter-info"><br>
 			
-	<label for="email">Catégorie </label>
-	<input type="email" name="email" id="email">
-</pre>
+	<label for="email" >Catégorie </label>
+	<span id="for-select"></span>
+	<select name="" id="cat-select" class="ajouter-info">
+		<option value="0">tous</option>
+		<option value="1">Objets</option>
+		<option value="2">Appartements</option>
+		<option value="3">Hôtels & restaurants </option>
+	</select> 
+	<hr>
+	<input type="submit" value="Valider" id="valider-modal" class="valider-modal"> 
 </form>
-		<hr>
-				<a href="introduirephoto.html"><input type="submit" value="Valider" class="des"></a>
-				<div id="res-error"></div>
-				<p class="SupprimerGalerie">Supprimer la galerie</p>
+
+
+<div id="res-error"></div>
+				
 				
     </aside>
 	<script type="module" src="js/testConnected.js"></script>
 	<script type="module" src="js/main-projet.js"></script>
 	<script type="module" src="js/modale.js"></script>
-	<script type="module" src="js/homepage_edit.js"></script>
+	<script type="module" src="js/homepage_edit.js"></script> 
+<script>
+
 	
-	<script type="module" src="js/main-projet.js"></script>
-	<script src="https://kit.fontawesome.com/024a111b2f.js" crossorigin="anonymous"></script> 
-	<script src="https://kit.fontawesome.com/5b77b1eedb.js" crossorigin="anonymous"></script>
+function loadImage(event) {
+  const input = event.target;
+  if(input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      const image = new Image();
+      image.src = reader.result;
+      const container = document.getElementById('contenuImageAjout');
+	  image.width = 150;
+	  image.height = 169;
+      container.appendChild(image);
+	  document.getElementById('png').style.display ="none";
+	  document.getElementById('bum').style.display ="none";
+	  document.getElementById('file-ajouter-photo').style.display ="none";
+	  const valider = document.getElementById('valider-modal');
+	  valider.style.backgroundColor = '#1D6154';
+	  valider.classList.remove("valider-modal");
+	  valider.classList.add("valider-modal-full");
+    }
+    reader.readAsDataURL(input.files[0]); 
+  }
+}
+</script>
 </main>
 
 <footer>

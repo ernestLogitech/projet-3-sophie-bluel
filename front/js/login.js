@@ -5,7 +5,6 @@
     let connectToken;
     let result ;
     async function send(e) {
-
     e.preventDefault();
     var vemail = document.getElementById("email").value; 
     var password = document.getElementById("password").value;   

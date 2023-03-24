@@ -43,17 +43,13 @@ padding: 0;
   height: 100%;
   background: rgb(0, 0, 0, 0.8);
   text-align: justify;
-
-  
 }
 .modal-wrappers{
   display: flex;
   flex-direction: column;
- 
 	align-items: center;
   overflow: auto;
-  width: 330px;
-  height: 670;
+  width: 330px; 
   padding: 100px;
   background-color: #fff;   
   border-radius: 10px;
