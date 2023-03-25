@@ -30,22 +30,6 @@ const reponse = await fetch('http://localhost:5678/api/works',{
   });
 const works = await reponse.json();
 console.log(works);
-/*
-///const reponsCategorie = await fetch('http://localhost:5678/api/categories');
-const reponsCategorie = await fetch('http://localhost:5678/api/categories',{
-
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Accept": "application/json", 
-      "Content-Type":"application/json",
-      "Cross-Origin-Resource-Policy" : "same-site | same-origin | cross-origin",
-     //"Access-Control-Allow-Origin":"missing",
-    }
-  });
-
-const categories = await reponsCategorie.json();
-console.log(categories);
-  */
 function genererGallery(works) {
 for(let i = 0; i < works.length ; i++){
     const galery = works[i];
@@ -68,14 +52,15 @@ for(let i = 0; i < works.length ; i++){
 }
 genererGallery(works);
 
-const buttonTous = document.querySelector('.tous');
+const buttonTous = document.getElementById('tous');
+console.log(buttonTous);
 buttonTous.addEventListener('click', function(){
 const tousGallery = Array.from(works); 
 document.querySelector(".gallery").innerHTML = '';
 genererGallery(tousGallery);
 });
 
-const buttonObjets = document.querySelector('.Objets');
+const buttonObjets = document.getElementById('Objets');
 buttonObjets.addEventListener('click', function(){
 const tousObjets = Array.from(works); 
 const tousObjet = tousObjets.filter(function (a) {
@@ -87,12 +72,12 @@ genererGallery(tousObjet);
 console.log(tousObjet);
 });
 
-const buttonAppartements = document.querySelector('.Appartements');
+const buttonAppartements = document.getElementById('Appartements');
 buttonAppartements.addEventListener('click', function(e){
-    const tousappartements = Array.from(works); 
-    const tousappartement = tousappartements.filter(function (a) {
-       
-        return a.category.name == "Appartements";
+const tousappartements = Array.from(works); 
+const tousappartement = tousappartements.filter(function (a) {
+    
+    return a.category.name == "Appartements";
 
     });
     //console.log(works[2].category.name);
@@ -103,7 +88,7 @@ buttonAppartements.addEventListener('click', function(e){
     console.log(tousappartement);
 });
 
-const buttonrestaurants = document.querySelector('.restaurants');
+const buttonrestaurants = document.getElementById('restaurants');
 buttonrestaurants.addEventListener('click', function(){
     
 const tousObjets = Array.from(works); 
@@ -142,4 +127,31 @@ console.log(tousObjet);
       .then(category => res.status(200).json(category))
       .catch(error => res.status(400).json({ error }));
   });
+
+
+  const buttonTous = document.getElementsByClassName('.tous');
+for(element of buttonTous){
+  element.addEventListener('click', function(){
+  const tousGallery = Array.from(works); 
+  
+  document.querySelector(".gallery").innerHTML = '';
+  genererGallery(tousGallery);
+  });
+}
+/*
+///const reponsCategorie = await fetch('http://localhost:5678/api/categories');
+const reponsCategorie = await fetch('http://localhost:5678/api/categories',{
+
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Accept": "application/json", 
+      "Content-Type":"application/json",
+      "Cross-Origin-Resource-Policy" : "same-site | same-origin | cross-origin",
+     //"Access-Control-Allow-Origin":"missing",
+    }
+  });
+
+const categories = await reponsCategorie.json();
+console.log(categories);
+
   */

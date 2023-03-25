@@ -16,16 +16,11 @@ for(let i = 0; i < works.length ; i++){
     const imageElement = document.createElement("img");
     const imageElementdiv = document.createElement("div");
     const imageElementfavdelete = document.createElement("i");
-    imageElement.src = galery.imageUrl;
-    //image.alt.innerText = galery.title;
-    const titreFigure = document.createElement("figcaption");
-    //titreFigure.innerText = galery.title;
-    titreFigure.innerText = 'éditer'
-
-    //rattache les elements crees au parents
-    //const sectionPortfolio = document.querySelector("#portfolio");
+    imageElement.src = galery.imageUrl; 
+    const titreFigure = document.createElement("figcaption"); 
+    titreFigure.innerText = 'éditer' 
     const divisionGallery = document.querySelector(".gallerymodal");
-   // sectionPortfolio.appendChild(divisionGallery);
+
     divisionGallery.appendChild(figureElement);
     figureElement.appendChild(imageElement); 
     imageElementdiv.className = 'deleteBlack';
@@ -86,10 +81,11 @@ genererGallery(works);
     response = await fetch('http://localhost:5678/api/works', {
     method: 'POST',
     headers: {
-    //'Content-Type': 'application/json;charset=utf-8',
+      "Content-Type": "application/json", 
+    //'Content-Type': 'multipart/form-data',
     'authorization': 'Bearer '+ token
     },
-    body:  data_modal,
+    body:  JSON.stringify(data_modal) ,
     //headers: {Authentication: `Bearer ${token}`}
     //headers: {Authentication: 'Bearer {token}'}
 
