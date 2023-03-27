@@ -58,7 +58,7 @@ genererGalleryHomeEdit(works);
 
 async function send_modal(e) {
   e.preventDefault();
-  console.log("bien");
+
   let connectToken = JSON.parse(localStorage.getItem("connectToken"));
   let title = document.getElementById("name-mod").value;
   let category = document.getElementById("cat-select").value;
