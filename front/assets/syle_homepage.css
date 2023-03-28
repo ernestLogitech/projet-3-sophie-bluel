@@ -365,6 +365,9 @@ footer nav ul {
   color: #ffffff;
   margin-right: 10px;
 }
+.mode-bic {
+  display: flex;
+}
 .modefav {
   margin-right: 10px;
   color: #ffffff;
@@ -451,26 +454,77 @@ footer nav ul {
   height: 103px;
   object-fit: cover;
 }
+.projet-menu {
+  text-decoration: none;
+  font-family: Work Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000;
+}
+.projet-menu:hover {
+  text-decoration: none;
+  font-family: Work Sans;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000;
+}
 .menu-designer {
   display: flex;
+  width: 110px;
   color: #000000;
+  margin: 0px 0px 20px 0px;
+}
+.sophie {
+  display: flex;
+  flex-direction: column;
 }
 .mode-design {
-  margin: 0px 20px 30px 0px;
+  margin: 0px 20px 0px 0px;
+  text-decoration: none;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000000;
 }
 .menu-designerimage {
   display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  width: 95px;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
   color: #000000;
-  margin: 0px 0px 0px 55px;
+  margin: 0px 0px 0px 65px;
 }
 .mode-designImage {
-  margin: 20px 10px 10px 0px;
+  margin: 10px 10px 10px 0px;
+  text-decoration: none;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000000;
 }
 .mesprojets {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   margin-bottom: 30px;
   margin: 0px 50px 0px 5px;
 }
@@ -480,7 +534,67 @@ footer nav ul {
 .mode-projet {
   margin: 0px 10px 30px 5px;
   text-decoration: none;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000000;
 }
+.projetMod {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 0px 0px 25px;
+  gap: 2px;
+}
+.cadre-edit {
+  height: 14.873444557189941px;
+  width: 14.869775772094727px;
+  color: #ffffff;
+  transform: translate(0%, 0%);
+}
+.bic-edit {
+  height: 14.873444557189941px;
+  width: 14.869775772094727px;
+  /* color: #ffffff;*/
+  color: #d65353;
+  transform: translate(-70%, -30%);
+}
+.cadre-bic {
+  margin: 10px 0px 0px 0px;
+  height: 14.873444557189941px;
+  width: 14.869775772094727px;
+  transform: translate(88%, -55%);
+}
+
+.bic {
+  margin: 10px 0px 0px 0px;
+  height: 14.873444557189941px;
+  width: 14.869775772094727px;
+  transform: translate(-5%, -75%);
+}
+.cadre-bicdesigner {
+  height: 14.873444557189941px;
+  width: 14.869775772094727px;
+  transform: translate(-05%, 15%);
+}
+.bic-designer {
+  height: 14.873444557189941px;
+  width: 14.869775772094727px;
+  transform: translate(-75%, -10%);
+}
+.cadre-bicFirst {
+  height: 14.873444557189941px;
+  width: 14.869775772094727px;
+  transform: translate(0%, 15%);
+}
+.bic-first {
+  height: 14.873444557189941px;
+  width: 14.869775772094727px;
+  transform: translate(-75%, -10%);
+}
+
 label {
   top: 0;
   bottom: 0;
@@ -545,11 +659,23 @@ label {
 .form-modal2 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 420px;
 }
+.formContact-edit {
+  margin-bottom: 50px;
+}
+.formContact-editM {
+  margin-bottom: 40px;
+}
+.formContactspan {
+  margin-bottom: 5px;
+}
 .titreModal2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   font-family: Work Sans;
   font-size: 14px;
   font-weight: 500;
@@ -598,17 +724,18 @@ label {
 }
 
 .uploadfile {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 4px;
-  width: 10px;
+  width: 4px;
   border-radius: 6px;
-  border: 1px dashed #999;
-  color: white;
+  border: 1px dashed #cbd6dc;
+  color: #cbd6dc;
   background-color: transparent;
+  transform: translate(500%, 550%);
 }
-
 .ajouter-info {
   width: 420px;
   height: 50px;
@@ -677,4 +804,21 @@ input[type="submit"] {
   width: 180px;
   text-align: center;
   border-radius: 60px;
+}
+
+@media screen and (max-width: 767px) {
+  .menu-designerimage {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    width: 95px;
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000000;
+    margin: 0px 0px 0px 35px;
+  }
 }
