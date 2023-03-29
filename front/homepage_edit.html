@@ -19,7 +19,7 @@
         <div class="mode-bic">
             <img src="./assets/icons/cadre-blanc.png" alt="croix" class="cadre-edit">
             <img src="./assets/icons/bic-blanc.png" alt="croix" class="bic-edit">
-            <i class="fa-regular fa-pen-to-square mode"></i>
+        
             <p class="mode"> Mode édition</p>
         </div>
         <div class="publier">
@@ -33,7 +33,7 @@
         <nav>
             <ul>
                 <li> <a class="projets projet-menu" href="index.html">projets</a></li>
-                <li> <a class="contact projet-menu" href="login.html">contact</a></li>
+                <li> <a class="contact projet-menu" href="#">contact</a></li>
                 <li id="loginCon"> <a class="projet-menu" href="login.html">login</a></li>
                 <li> <a class="Homepage projet-menu" href="homepage_edit.html">Edit</a></li>
                 <li id="logout"> <a class="logout projet-menu">logout</a></li>
@@ -137,7 +137,7 @@
                      </div>
                    
                 <div>
-                        <input type="file" id="file-ajouter-photo"   class="uploadfile"  onchange="loadImage(event)" accept="image/* ">
+                        <input type="file" id="file"   class="uploadfile"  onchange="loadImage(event)" accept="image/* ">
                         <label for="file" class="labelFile" id="labelFile">+ Ajouter photo</label>
                 </div>
              <div>
@@ -164,7 +164,7 @@
                     
                     <hr>
                     <form-group>
-                      <input type="submit" value="Valider" id="valider-modal" class="valider-modal">
+                      <button  id="valider-modal" class="valider-modal">Valider</button>
                     </form-group> 
                 </form>
 
@@ -173,9 +173,10 @@
  </div>
 
         </aside>
-        <script type="module" src="js/testConnected.js"></script> 
+     
         <script type="module" src="js/modale.js"></script>
         <script type="module" src="js/homepage_edit.js"></script>
+        <script type="module" src="js/testConnected.js"></script> 
         <script>
             function loadImage(event) {
               const input = event.target;
@@ -191,7 +192,7 @@
             	  document.getElementById('premiereImage').style.display ="none";
                   document.getElementById('style-png').style.display ="none";
             	  document.getElementById('labelFile').style.display ="none";
-            	  document.getElementById('file-ajouter-photo').style.display ="none";
+            	  document.getElementById('file').style.display ="none";
             	  const valider = document.getElementById('valider-modal');
             	  valider.style.backgroundColor = '#1D6154';
             	  valider.classList.remove("valider-modal");
