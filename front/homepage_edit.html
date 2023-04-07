@@ -27,16 +27,17 @@
         </div>
 
     </div>
+    <section class="main-conteneur">
     <header>
 
         <h1>Sophie Bluel <span>ARCHITECTE D'INTERIEUR</span></h1>
         <nav>
-            <ul>
-                <li> <a class="projets projet-menu" href="index.html">projets</a></li>
-                <li> <a class="contact projet-menu" href="#">contact</a></li>
-                <li id="loginCon"> <a class="projet-menu" href="login.html">login</a></li>
-                <li> <a class="Homepage projet-menu" href="homepage_edit.html">Edit</a></li>
-                <li id="logout"> <a class="logout projet-menu">logout</a></li>
+            <ul id="menuP">
+                <li id="projet"> <a class="projets projet-menu" href="index.html">projets</a></li>
+                <li > <a id="contact" class="contact projet-menu" href="#">contact</a></li>
+                <li > <a id="loginCon" class="projet-menu" href="login.html">login</a></li>
+                <li > <a id="edit" class="Homepage projet-menu" href="homepage_edit.html">Edit</a></li>
+                <li > <a id="logout" class="logout projet-menu">logout</a></li>
                 <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>
@@ -102,6 +103,7 @@
 
         <aside id="modal1" class="modal" aria-hidden="true" aria-labelledby="titlemodal" style="display: none">
             <div class="modal-wrapper js-modal-stop">
+                
                 <button class="js-modal-close modalClosedesign"><img src="./assets/icons/croix.png" alt="croix"></button>
 
                 <h1 id="titlemodal">Galerie photo</h1>
@@ -110,9 +112,13 @@
  
                 </div>
                 <hr>
-                <a href="#modal2" class="js-modal mode-design">
-                    <input type="submit" value="Ajouter une photo" class="contact-envoyer">
+                 
+                <a href="#modal2" class="js-modal mode-design" > 
+
+                        <input type="submit" value="Ajouter une photo" class="contact-envoyer">
+                 
                 </a>
+       
                 <div id="res-error"></div>
                 <p class="SupprimerGalerie">Supprimer la galerie</p>
 
@@ -123,7 +129,7 @@
 
         <aside id="modal2" class="modal2" aria-hidden="true" aria-labelledby="titlemodal" style="display: none">
             <div class="modal-wrappers js-modal-stop">
-                <button class="js-modal-close modal2Closedesigns-fleche">  <img src="./assets/icons/arrow_back.png" alt="arrow_back"></button>
+                <button class="js-modal-close-fleche modal2Closedesigns-fleche">  <img src="./assets/icons/arrow_back.png" alt="arrow_back"></button>
                 <button class="js-modal-close modal2Closedesigns"><img src="./assets/icons/croix.png" alt="croix"></button>
 
                 <h1 id="titlemodal">Ajout photo</h1>
@@ -178,6 +184,7 @@
         <script type="module" src="js/homepage_edit.js"></script>
         <script type="module" src="js/testConnected.js"></script> 
         <script>
+            //modale ajouter photo
             function loadImage(event) {
               const input = event.target;
               if(input.files && input.files[0]) {
@@ -201,7 +208,61 @@
                 reader.readAsDataURL(input.files[0]); 
               }
             }
-        </script>
+
+
+            document
+  .getElementById("valider-modal")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+    
+    alert("formulaire valide");
+
+    let connectToken = JSON.parse(localStorage.getItem("connectToken"));
+    let title = document.getElementById("name-mod").value;
+    let category = document.getElementById("cat-select").value;
+    let imageTosend = document.getElementById("file").files[0];
+    let userId = connectToken.userId;
+    let token = connectToken.token;
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("category", category);
+    formData.append("userId", userId);
+    formData.append("image", imageTosend);
+    console.log(title);
+    console.log(category);
+    console.log(userId);
+    console.log(formData);
+    console.log("je suis dans la function modal");
+  
+    let response;
+    if (title != "" && category != "") {
+        console.log("je suis dans la function modal et la condition");
+        alert("je suis dans la function modal et la condition");
+     
+      response = fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: {
+          authorization: "Bearer " + token,
+        },
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch(function (error) {
+          console.log(
+            "Il y a eu un problème avec l'opération fetch : " + error.message
+          );
+        });
+    } else {
+      getemailValidationVide();
+      console.log("vous devez renseigner vos informations de connexion");
+    }
+  });
+
+  </script>
      
     </main>
 
@@ -215,6 +276,7 @@
     
     <script src="https://kit.fontawesome.com/024a111b2f.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/5b77b1eedb.js" crossorigin="anonymous"></script>
+</section>
 </body>
 
 </html>

@@ -56,55 +56,15 @@ function genererGalleryHomeEdit(works) {
 }
 genererGalleryHomeEdit(works);
 
-async function send_modal(e) {
-  e.preventDefault();
+//async function send_modal(e) { creation des ressources
 
-  let connectToken = JSON.parse(localStorage.getItem("connectToken"));
-  let title = document.getElementById("name-mod").value;
-  let category = document.getElementById("cat-select").value;
-  let imageTosend = document.getElementById("file").files[0];
-  let userId = connectToken.userId;
-  let token = connectToken.token;
-  const formData = new FormData();
-
-  formData.append("title", title);
-  formData.append("category", category);
-  formData.append("userId", userId);
-  formData.append("image", imageTosend);
-  console.log(title);
-  console.log(category);
-  console.log(userId);
-  console.log(formData);
-  console.log("je suis dans la function modal");
-  let response;
-  if (title != "" && category != "") {
-    response = await fetch("http://localhost:5678/api/works", {
-      method: "POST",
-      headers: {
-        authorization: "Bearer " + token,
-      },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch(function (error) {
-        console.log(
-          "Il y a eu un problème avec l'opération fetch : " + error.message
-        );
-      });
-  } else {
-    getemailValidationVide();
-    console.log("vous devez renseigner vos informations de connexion");
-  }
-}
-
+/*
 document
   .getElementById("valider-modal")
   .addEventListener("click", function (e) {
     send_modal(e);
-  });
+  });*/
+
 //document.getElementById("form-modal2").addEventListener("click", send_modal);
 document.getElementById("name-mod").addEventListener("input", function (e) {
   document.getElementById("for-name").innerText = e.target.value;
@@ -133,6 +93,7 @@ modalGallery.forEach((element) => {
     let connectToken = JSON.parse(localStorage.getItem("connectToken"));
     let token = connectToken.token;
     let id;
+    let response;
     id = element.getAttribute("id");
     console.log(id);
     response = await fetch("http://localhost:5678/api/works/" + id, {
@@ -140,7 +101,8 @@ modalGallery.forEach((element) => {
       headers: {
         authorization: "Bearer " + token,
       },
-    })
+    });
+    /*
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -149,6 +111,6 @@ modalGallery.forEach((element) => {
         console.log(
           "Il y a eu un problème avec l'opération fetch : " + error.message
         );
-      });
+      });*/
   });
 });

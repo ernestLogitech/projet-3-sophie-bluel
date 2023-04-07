@@ -30,7 +30,7 @@ function genererGallery(works) {
 genererGallery(works);
 
 const buttonTous = document.getElementById("tous");
-console.log(buttonTous);
+//console.log(buttonTous);
 buttonTous.addEventListener("click", function () {
   const tousGallery = Array.from(works);
   document.querySelector(".gallery").innerHTML = "";

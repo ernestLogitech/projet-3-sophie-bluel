@@ -41,7 +41,7 @@ async function send(e) {
           console.log(stoLogin);
           setTimeout(() => {
             location.href = "index.html";
-          }, 10000);
+          }, 1000);
         } else {
           getemailValidation();
           console.log(data.error);
